@@ -1,0 +1,215 @@
+*{
+  /* we are removing default browser's styling (padding and margin)
+  and we want our DOM elements to have a fixed width */
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+
+/* styling the top and bottom images */
+#top-image{
+  /* // top image is positioned relative to its parent, which is body */
+  position: absolute;
+  right:0;
+}
+#bottom-image{
+  /* position the bottom image bottom left, relative to its parent */
+  position: absolute;
+  bottom: 0;
+  left:0;
+}
+
+body{
+  height:100vh;
+  background: hsl(240, 78%, 98%);
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  font-weight: 700;
+  padding:40px;
+}
+
+/* styling the toggle checkbox */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: hsl(237, 63%, 64%);
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+#heading{
+  margin-bottom: 50px;
+}
+label{
+  margin-left:20px;
+  margin-right: 20px;
+}
+
+.text{
+  display: inline;
+}
+#pricing{
+  margin-top:70px;
+
+}
+#first-item, #second-item, #third-item{
+  max-width: 400px;
+  display: inline-block;
+  padding:50px;
+  position: relative;
+}
+#first-item, #third-item{
+  /* we want the first and thrid items to be positioned relative to themselves and
+  not their parent. As we made them positioned, they will have a high stacking order
+  then the top image. The top image was also positioned but since these items
+  came after the image and was positioned, they will have a higer stacking order
+  than the image */
+  background-color: white;
+  top:40px;
+}
+#second-item{
+  color:white;
+  /* we want the colour to transistion from top to bottom */
+  background: linear-gradient(hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+  height: 550px;
+}
+.amount{
+  font-size: calc(40px + (70 - 40) * (100vw - 320px) / (1440 - 320));
+  /* font-size: 70px; */
+  font-weight: 700;
+  margin-top:40px;
+  margin-bottom: 40px;
+}
+
+#storage-second-item{
+  border:1px solid white;
+  border-left:0;
+  border-right:0;
+  padding-top:10px;
+  padding-bottom: 10px;
+}
+.storage{
+  border:1px solid hsl(234, 14%, 74%);
+  border-left:0;
+  border-right:0;
+  padding-top:10px;
+  padding-bottom: 10px;
+}
+
+.users, .transfer-rate{
+  border:1px solid hsl(234, 14%, 74%);
+  border-left:0;
+  border-right:0;
+  border-top:0;
+  padding-top:10px;
+  padding-bottom: 10px;
+}
+#users-second-item, #transfer-rate-second-item{
+  border:1px solid white;
+  border-left:0;
+  border-right:0;
+  border-top:0;
+  padding-top:10px;
+  padding-bottom: 10px;
+}
+.learn-more{
+  padding-top:10px;
+  padding-bottom: 10px;
+  /* we want the colours to transition from left to right */
+  background: linear-gradient(to right, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+  color:white;
+  margin-top:30px;
+  cursor:pointer;
+}
+.learn-more:hover{
+  background: white;
+  border:1px solid  hsl(233, 13%, 49%);
+  color:hsl(237, 63%, 64%);
+}
+#learn-more-second-item{
+  padding-top:10px;
+  padding-bottom: 10px;
+  /* we want the colours to transition from left to right */
+  background: white;
+  color:hsl(237, 63%, 64%);
+  margin-top:30px;
+  cursor: pointer;
+}
+#learn-more-second-item:hover{
+  background: linear-gradient(hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+  border: 1px solid white;
+  color:white;
+
+}
+
+@media(max-width:1070px){
+  body{
+    height:auto;
+  }
+
+}
+@media(max-width: 884px){
+  body{
+    height:2000px;
+
+  }
+  #second-item{
+    top:80px;
+  }
+  #third-item{
+    top:120px;
+  }
+  #pricing, #first-item, #second-item, #third-item{
+    /* at smaller screen sizes, the width of the pricing should be that of the parent */
+    width:100%;
+  }
+
+}
